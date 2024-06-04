@@ -1,0 +1,90 @@
+#include <stdio.h>
+#include <conio.h>
+
+int main() {
+    // Deklarasi variabel untuk menyimpan input pengguna
+    char nama[50];  // array untuk menyimpan nama pengguna (maksimum 50 karakter)
+    int nim;       // variabel untuk menyimpan NIM pengguna (nomor induk mahasiswa)
+    char kom;      // variabel untuk menyimpan KOM pengguna (kode mata kuliah)
+    float ip;      // variabel untuk menyimpan IP pengguna (indeks prestasi)
+
+    // Cetak pesan selamat datang
+    printf("Hello World\n");
+
+    // Minta pengguna untuk memasukkan nama
+    printf("Masukkan nama : ");
+    // Gunakan gets() untuk membaca input string dari pengguna (alternatif scanf)
+    gets(nama);     //* gets = get string
+
+    // Minta pengguna untuk memasukkan NIM
+    printf("Masukkan NIM : ");
+    // Gunakan scanf untuk membaca input integer dari pengguna
+    scanf("%d", &nim);
+
+    // Minta pengguna untuk memasukkan KOM
+    printf("Masukkan KOM : ");
+    // Gunakan scanf untuk membaca input karakter dari pengguna (perhatikan spasi sebelum %c untuk mengabaikan whitespace)
+    scanf(" %c", &kom);
+
+    // Minta pengguna untuk memasukkan IP
+    printf("Masukkan IP : ");
+    // Gunakan scanf untuk membaca input floating-point dari pengguna
+    scanf("%f", &ip);
+
+    // Cetak nilai input pengguna
+    // Cara alternatif untuk mencetak string menggunakan puts()
+    printf("Nama : ");
+    puts(nama);     //* puts = put string
+
+    // Cetak NIM pengguna
+    printf("NIM : %d\n", nim);
+    // Cetak KOM pengguna
+    printf("KOM : %c\n", kom);
+    // Cetak IP pengguna dengan tiga desimal
+    printf("IP : %.3f\n", ip);
+
+    // Tunggu pengguna untuk menekan tombol sebelum keluar
+    printf("Tekan tombol apa saja untuk melanjutkan...");
+    getch();
+}
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    // Deklarasi variabel untuk menyimpan input pengguna
+    string nama;  // variabel untuk menyimpan nama pengguna
+    int nim;     // variabel untuk menyimpan NIM pengguna (nomor induk mahasiswa)
+    char kom;    // variabel untuk menyimpan KOM pengguna (kode mata kuliah)
+    float ip;    // variabel untuk menyimpan IP pengguna (indeks prestasi)
+
+    // Cetak pesan selamat datang
+    cout << "Hello World" << endl;
+
+    // Minta pengguna untuk memasukkan nama
+    cout << "Masukkan Nama : ";
+    // Gunakan getline untuk membaca input string dari pengguna (alternatif cin)
+    getline(cin, nama);
+
+    // Minta pengguna untuk memasukkan NIM
+    cout << "Masukkan NIM : ";
+    // Gunakan cin untuk membaca input integer dari pengguna
+    cin >> nim;
+
+    // Minta pengguna untuk memasukkan KOM
+    cout << "Masukkan KOM : ";
+    // Gunakan cin untuk membaca input karakter dari pengguna
+    cin >> kom;
+
+    // Minta pengguna untuk memasukkan IP
+    cout << "Masukkan IP : ";
+    // Gunakan cin untuk membaca input floating-point dari pengguna
+    cin >> ip;
+
+    // Cetak nilai input pengguna
+    cout << "NAMA : " << nama << endl;
+    cout << "NIM : " << nim << endl;
+    cout << "KOM : " << kom << endl;
+    cout << "IP : " << ip << endl;
+}
