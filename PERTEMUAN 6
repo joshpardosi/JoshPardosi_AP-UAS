@@ -1,0 +1,133 @@
+// #include <iostream>
+// #include <array>
+
+// using namespace std;
+
+int main() {
+    system("cls");  // Membersihkan layar (khusus Windows)
+
+    //? Deklarasi dan Inisialisasi Array
+    string nama[5] = {"Andi", "Budi", "Santi", "Wanto", "Denis"};
+
+    //? Mengakses Elemen dalam Array
+    for (int i = 0; i < 5; i++) {
+        cout << nama[i] << endl;
+    }
+
+    //? Array Multi-Dimensi
+    int matrix[2][3] = {{1, 3, 5}, {2, 4, 6}};
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    //? String (Array Karakter)
+    string namaString = "zustine";
+
+    cout << namaString[0] << endl;
+    cout << namaString[2] << endl;
+
+    for (int i = 0; i < namaString.length(); i++) {
+        cout << namaString[i] << endl;
+    }
+
+    //? Contoh 1: Input dan Output Nilai Mahasiswa
+    int n;
+
+    cout << "Masukkan banyak mahasiswa: ";
+    cin >> n;
+
+    float nilaiMahasiswa[n];
+    for (int i = 0; i < n; i++) {
+        cout << "Masukkan nilai mahasiswa ke-" << i + 1 << ": ";
+        cin >> nilaiMahasiswa[i];
+    }
+
+    for (int i = 0; i < n; i++) {
+        cout << "Nilai mahasiswa ke-" << i + 1 << ": " << nilaiMahasiswa[i] << endl;
+    }
+
+    //? Contoh 2: Menampilkan Nama Karyawan
+    string nama_karyawan[] = {"Andi", "Yusuf", "Budi", "Yanto", "Santika", "Dodi"};
+
+    //! Menggunakan sizeof() untuk menghitung jumlah elemen array
+    int jumlahKaryawan = sizeof(nama_karyawan) / sizeof(string);
+    for (int i = 0; i < jumlahKaryawan; i++) {
+        cout << nama_karyawan[i] << endl;
+    }
+
+    //? Contoh 3: Penjumlahan Matriks
+    int matriks1[2][2];
+    int matriks2[2][2];
+    int hasil[2][2];
+
+    cout << "Matriks 1" << endl;
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            cout << "Masukkan elemen baris " << i + 1 << " kolom " << j + 1 << ": ";
+            cin >> matriks1[i][j];
+        }
+    }
+
+    cout << "Matriks 2" << endl;
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            cout << "Masukkan elemen baris " << i + 1 << " kolom " << j + 1 << ": ";
+            cin >> matriks2[i][j];
+        }
+    }
+
+    cout << "Hasil Penjumlahan" << endl;
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            hasil[i][j] = matriks1[i][j] + matriks2[i][j];
+            cout << hasil[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    //? Library Array
+    array<float, 5> nilaiArray = {87.2, 90, 100, 95.7, 78.5};
+
+    cout << "Nilai: ";
+    for (float nilai : nilaiArray) {  //* For Each Loop
+        cout << nilai << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    system("cls");
+
+    //? Deklarasi dan Inisialisasi Vector
+    vector<string> nama_karyawan = {"Andi", "Budi", "Santi", "Doni", "Yanto"};
+
+    //? Mengakses Elemen dalam Vector
+    for (int i = 0; i < nama_karyawan.size(); i++) {
+        cout << nama_karyawan[i] << endl;
+    }
+
+    //? Menampilkan Elemen dalam Vector menggunakan For Each Loop
+    for (string karyawan : nama_karyawan) {         //* For Each Loop
+        cout << karyawan << endl;
+    } 
+
+    //? Menambahkan Data ke Vector
+    nama_karyawan.push_back("Wawan");
+
+    //? Menghapus Data dari Vector
+    nama_karyawan.pop_back();       //* Menghapus data vector paling akhir
+    nama_karyawan.erase(nama_karyawan.begin() + 3);     //* begin() untuk mendapatkan data paling awal, erase() untuk menghapus data
+}
+
