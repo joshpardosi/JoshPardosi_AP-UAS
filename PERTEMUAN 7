@@ -1,0 +1,100 @@
+#include <iostream>
+
+using namespace std;
+
+// Fungsi penjumlahan tanpa pointer
+void penjumlahan(int a, int b) {
+    cout << a + b << endl;
+}
+
+// Fungsi penjumlahan dengan pointer
+void penjumlahanPointer(int* a, int* b) {
+    *a += *b;
+    cout << *a << endl;
+}
+
+// Fungsi untuk menggandakan nilai menggunakan pointer
+void doubleValue(int* a) {
+    *a *= 2;
+}
+
+int main() {
+    system("cls");  // Membersihkan layar (khusus Windows)
+
+    //? Deklarasi Pointer
+    //* Variabel Normal --> variable(data), &variable(alamat memori)
+    int number = 35;
+    //* Variabel Pointer --> variable(alamat memori variabel yang ditunjuk), &variable(alamat memori), *variable(data variabel yang ditunjuk)
+    int* pointer_number = &number;
+
+    cout << "Isi variabel number = " << number << endl;
+    cout << "Alamat memori variabel number = " << &number << endl;
+    cout << "Isi variabel pointer_number = " << pointer_number << endl;
+    cout << "Isi variabel yang ditunjuk oleh pointer_number = " << *pointer_number << endl;
+    cout << "Alamat memori variabel pointer_number = " << &pointer_number << endl;
+
+    //? Operasi Pointer
+    *pointer_number = 25;
+    cout << "Isi variabel number = " << number << endl;
+    cout << "Alamat memori variabel number = " << &number << endl;
+    cout << "Isi variabel pointer_number = " << pointer_number << endl;
+    cout << "Isi variabel yang ditunjuk oleh pointer_number = " << *pointer_number << endl;
+    cout << "Alamat memori variabel pointer_number = " << &pointer_number << endl;
+
+    //? Pointer dalam Array
+    int num[] = {1, 2, 3, 4, 5};
+    int* pointer_num = num;
+
+    cout << "Isi variabel num = " << num[0] << endl;
+    cout << "Alamat memori variabel num = " << &num[0] << endl;
+    // cout << "Alamat memori variabel num = " << num << endl;      //* Sama seperti di atas
+    cout << "Isi variabel pointer_num = " << pointer_num << endl;
+    cout << "Isi variabel yang ditunjuk oleh pointer_num = " << *pointer_num << endl;
+    cout << "Alamat memori variabel pointer_num = " << &pointer_num << endl;
+
+    *pointer_num += 5;
+    cout << "Isi variabel num = " << num[0] << endl;
+    cout << "Alamat memori variabel num = " << &num[0] << endl;
+    cout << "Isi variabel pointer_num = " << pointer_num << endl;
+    cout << "Isi variabel yang ditunjuk oleh pointer_num = " << *pointer_num << endl;
+    cout << "Alamat memori variabel pointer_num = " << &pointer_num << endl;
+
+    //? Pointer sebagai Parameter
+    int num1 = 5;
+    int num2 = 7;
+
+    penjumlahan(num1, num2);  // Panggil fungsi tanpa pointer
+    cout << num1 << endl;
+    cout << num2 << endl;
+
+    penjumlahanPointer(&num1, &num2);  // Panggil fungsi dengan pointer
+    cout << num1 << endl;
+    cout << num2 << endl;
+
+    //? Pointer dalam Pointer
+    int score = 4;
+    int* pointer_score = &score;
+    int** ptr_pointer_score = &pointer_score;
+    cout << "Isi variabel score " << score << " dan alamat memorinya " << &score << endl;
+    cout << "Isi variabel pointer_score " << pointer_score << " isi variabel yang ditunjuk oleh pointer_score " << *pointer_score << " alamat memori pointer_score " << &pointer_score << endl;
+    cout << "Isi variabel ptr_pointer_score " << ptr_pointer_score << " isi variabel yang ditunjuk oleh ptr_pointer_score " << **ptr_pointer_score << " alamat memori ptr_pointer_score " << &ptr_pointer_score << endl;
+
+    //? Pointer Dinamis
+    int* ptr = new int;  //* Alokasi memori
+    *ptr = 30;
+    cout << "Isi variabel ptr " << *ptr << " alamat variabel ptr " << &ptr << endl;
+    delete ptr;  //* Dealokasi memori
+    // Akses ptr setelah delete tidak aman, namun ditampilkan sebagai contoh
+    cout << "Isi variabel ptr setelah delete " << *ptr << " alamat variabel ptr " << &ptr << endl;
+
+    //* Contoh Kode
+    int n;
+    cout << "Masukkan sebuah angka: ";
+    cin >> n;
+
+    doubleValue(&n);  // Panggil fungsi untuk menggandakan nilai
+    cout << "Nilai angka setelah dikali 2 = " << n << endl;
+
+    return 0;
+}
+
