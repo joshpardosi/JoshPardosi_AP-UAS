@@ -1,0 +1,175 @@
+#include <iostream> // Mengimpor pustaka untuk input dan output
+#include <math.h>   // Mengimpor pustaka matematika untuk fungsi pow
+#include <cctype>   // Mengimpor pustaka untuk fungsi toupper
+
+using namespace std; // Menggunakan namespace std agar tidak perlu menulis std:: di depan fungsi standar C++
+
+// Deklarasi fungsi-fungsi yang digunakan dalam program
+void garis();
+void bintang();
+void menu();
+int tambah(int a, int b);
+int kurang(int a, int b);
+int kali(int a, int b);
+float bagi(int a, int b);
+int modulo(int a, int b);
+int pangkat(int a, int b);
+
+int main() {
+    char cont; // Variabel untuk menyimpan pilihan user apakah akan melanjutkan atau tidak
+
+    do {
+        system("cls"); // Membersihkan layar (hanya bekerja di Windows)
+
+        menu(); // Menampilkan menu
+
+        int operation, a, b, hasil; // Variabel untuk menyimpan operasi yang dipilih, angka pertama, angka kedua, dan hasil
+        cout << "Masukkan operasi : ";
+        cin >> operation; // Membaca input operasi dari user
+
+        cout << "Masukkan angka pertama : ";
+        cin >> a; // Membaca input angka pertama dari user
+
+        cout << "Masukkan angka kedua : ";
+        cin >> b; // Membaca input angka kedua dari user
+
+        // Melakukan operasi sesuai dengan pilihan user
+        switch(operation) {
+            case 1:
+                hasil = tambah(a, b); // Memanggil fungsi tambah
+                break;
+            case 2:
+                hasil = kurang(a, b); // Memanggil fungsi kurang
+                break;
+            case 3:
+                hasil = kali(a, b); // Memanggil fungsi kali
+                break;
+            case 4:
+                hasil = bagi(a, b); // Memanggil fungsi bagi
+                break;
+            case 5:
+                hasil = modulo(a, b); // Memanggil fungsi modulo
+                break;
+            case 6:
+                hasil = pangkat(a, b); // Memanggil fungsi pangkat
+                break;
+        }
+
+        // Menampilkan hasil operasi
+        cout << "Hasil = " << hasil << endl;
+
+        bintang(); // Menampilkan garis bintang sebagai pemisah
+
+        // Menanyakan kepada user apakah ingin melanjutkan
+        cout << "Apakah Anda ingin melanjutkan? [Y/N] : ";
+        cin >> cont;
+    } while(toupper(cont) == 'Y'); // Melanjutkan loop jika user menjawab 'Y'
+
+    // Menampilkan pesan terima kasih
+    cout << "Terima kasih telah menggunakan program kalkulator" << endl;
+    return 0;
+}
+
+// Fungsi untuk menampilkan garis
+void garis() {
+    cout << "====================================" << endl;
+}
+
+// Fungsi untuk menampilkan garis bintang
+void bintang() {
+    cout << "************************************" << endl;
+}
+
+// Fungsi untuk menampilkan menu
+void menu() {
+    garis();
+    cout << "Selamat Datang di Program Kalkulator" << endl;
+    garis();
+    cout << "1. Tambah \n2. Kurang \n3. Kali \n4. Bagi \n5. Modulo \n6. pangkat" << endl;
+    garis();
+}
+
+// Fungsi untuk melakukan operasi penjumlahan
+int tambah(int a, int b) {
+    return a + b;
+}
+
+// Fungsi untuk melakukan operasi pengurangan
+int kurang(int a, int b) {
+    return a - b;
+}
+
+// Fungsi untuk melakukan operasi perkalian
+int kali(int a, int b) {
+    return a * b;
+}
+
+// Fungsi untuk melakukan operasi pembagian
+float bagi(int a, int b) {
+    return static_cast<float>(a) / static_cast<float>(b);
+}
+
+// Fungsi untuk melakukan operasi modulo
+int modulo(int a, int b) {
+    return a % b;
+}
+
+// Fungsi untuk melakukan operasi perpangkatan
+int pangkat(int a, int b) {
+    return pow(a, b);
+}
+
+
+#include <iostream>
+#include "function_header.h"
+#include "preprocessor.h"
+
+using namespace std;
+
+// Fungsi penjumlahan
+int tambah(int a, int b) {
+    return a + b;
+}
+
+// Fungsi pengurangan
+int kurang(int a, int b) {
+    return a - b;
+}
+
+// Prosedur untuk menampilkan garis
+void garis() {
+    cout << "==========" << endl;
+}
+
+// Prosedur untuk menampilkan bintang
+void bintang() {
+    cout << "*********" << endl;
+}
+
+int main() {
+    int n;
+
+    garis(); // Menampilkan garis
+
+    // Menampilkan hasil dari berbagai operasi
+    cout << "Tambah: " << tambah(2, 3) << endl;
+    cout << "Kurang: " << kurang(2, 3) << endl;
+    cout << "Kali: " << kali(2, 3) << endl; // Fungsi kali dari function_header.h
+    cout << "Bagi: " << bagi(2, 3) << endl; // Fungsi bagi dari function_header.h
+
+    bintang(); // Menampilkan bintang
+
+    cout << "PI: " << PI << endl; // Menampilkan nilai PI dari preprocessor.h
+    
+    bintang(); // Menampilkan bintang
+
+    cout << "Masukkan angka: "; // Meminta input dari user
+    cin >> n; // Membaca input user
+
+    bintang(); // Menampilkan bintang
+
+    cout << n << endl; // Menampilkan input user
+
+    return 0;
+}
+
