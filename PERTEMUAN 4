@@ -1,0 +1,79 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    // Goto Label: Melompat ke label 'a'
+    goto a;
+    b:
+        // Mencetak "Universitas Sumatera Utara" dan mengembalikan nilai 0
+        cout << "Universitas Sumatera Utara" << endl;
+        return 0;
+    c:
+        // Mencetak "Fasilkom-TI" dan melompat ke label 'b'
+        cout << "Fasilkom-TI" << endl;
+        goto b;
+    d:
+        // Mencetak "Ilmu Komputer" dan melompat ke label 'c'
+        cout << "Ilmu Komputer" << endl;
+        goto c;
+    a:
+        // Mencetak "Hello World" dan melompat ke label 'd'
+        cout << "Hello World" << endl;
+        goto d;
+
+    // Goto Loop: Mencetak bilangan genap dari 1 sampai 10
+    int i = 1;
+    genap:
+        // Mencetak bilangan genap
+        if (i % 2 == 0) {
+            cout << i << " ";
+        }
+        i++;
+        // Melompat ke label 'genap' jika i <= 10
+        if (i <= 10) {
+            goto genap;
+        }
+
+    // While Loop: Mencetak bilangan genap dari 1 sampai 10
+    int j = 1;
+    while(j <= 10) {
+        // Mencetak bilangan genap
+        if (j % 2 == 0) {
+            cout << j << " ";
+        }
+        j++;
+    }
+    cout << endl;
+
+    // Do While Loop: Mencetak bilangan dari 1 sampai 10
+    int k = 1;
+    do {
+        // Mencetak bilangan
+        cout << k << endl;
+        k++;
+    } while(k <= 10);
+
+    // For Loop: Mencetak "Hello World" sebanyak 5 kali
+    for(int l = 1; l <= 10; l+=2) {
+        cout << "Hello World" << endl;
+    }
+
+    // For Loop: Mencetak pola bintang 5x5
+    for (int m = 1; m <= 5; m++) {
+        for (int n = 1; n <= 5; n++) {
+            cout << "* ";
+        }
+        cout << endl;
+    }
+
+    // For Loop: Mencetak pola bintang segitiga
+    for (int o = 1; o <= 5; o++) {
+        for (int p = 1; p <= o; p++) {
+            cout << "* ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
