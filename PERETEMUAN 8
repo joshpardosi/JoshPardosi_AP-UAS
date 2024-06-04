@@ -1,0 +1,155 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+//? Deklarasi Struct Mahasiswa
+struct Mahasiswa {
+    string nama;  // Nama mahasiswa
+    string nim;   // Nomor Induk Mahasiswa
+    float nilai;  // Nilai mahasiswa
+};
+
+// Deklarasi typedef untuk struct Mahasiswa
+typedef struct {
+    string nama;  // Nama mahasiswa
+    string nim;   // Nomor Induk Mahasiswa
+    float nilai;  // Nilai mahasiswa
+} mhs;
+
+int main() {
+    system("cls");  // Membersihkan layar (khusus Windows)
+
+    //? Inisialisasi Struct
+    Mahasiswa mhs;                 // Membuat instance struct Mahasiswa
+    vector<Mahasiswa> mahasiswa;   // Membuat vector untuk menyimpan data mahasiswa
+    int n;                         // Variabel untuk menyimpan jumlah mahasiswa
+
+    //? Meminta jumlah mahasiswa dari pengguna
+    cout << "Masukkan banyak mahasiswa : ";
+    cin >> n;
+
+    //? Mengambil input untuk setiap mahasiswa
+    for(int i = 0; i < n; i++) {
+        cout << "Mahasiswa " << i + 1 << endl;
+
+        //? Mengambil input untuk setiap field struct
+        cin.get();  // Mengambil karakter newline yang tersisa dari input sebelumnya
+        cout << "Masukkan nama : ";
+        getline(cin, mhs.nama);  // Mengambil input nama dengan spasi
+
+        cout << "Masukkan NIM : ";
+        cin >> mhs.nim;  // Mengambil input NIM
+
+        cout << "Masukkan nilai : ";
+        cin >> mhs.nilai;  // Mengambil input nilai
+
+        //? Menambahkan struct ke vector
+        mahasiswa.push_back(mhs);  // Menyimpan data mahasiswa ke dalam vector
+    }
+
+    //? Menampilkan data mahasiswa yang telah disimpan
+    for(int i = 0; i < n; i++) {
+        cout << "Mahasiswa " << i + 1 << endl;
+        cout << "Nama : " << mahasiswa[i].nama << endl;
+        cout << "NIM : " << mahasiswa[i].nim << endl;
+        cout << "Nilai : " << mahasiswa[i].nilai << endl;
+    }
+
+    return 0;  // Mengembalikan nilai 0 untuk menandakan bahwa program selesai dengan sukses
+}
+
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+//? Kelas Mahasiswa yang merepresentasikan data mahasiswa
+class Mahasiswa {
+    //? Access Modifier
+    private:
+        string nama; //? Variabel private untuk menyimpan nama mahasiswa
+        string nim; //? Variabel private untuk menyimpan NIM mahasiswa
+        float nilai; //? Variabel private untuk menyimpan nilai mahasiswa
+
+    //? Access Modifier
+    public:
+        //? Constructor -> Fungsi yang langsung dipanggil ketika class diinstansiasi
+        Mahasiswa(string nama, string nim, float nilai) {
+            this->nama = nama;
+            this->nim = nim;
+            this->nilai = nilai;
+        }
+
+        //? Getter Function -> berfungsi untuk mengembalikan data sebuah variabel yang memiliki akses private
+        string getName() {
+            return this->nama;
+        }
+
+        //? Fungsi untuk menampilkan data mahasiswa
+        void display() {
+            cout << "Nama   : " << this->nama << endl;
+            cout << "NIM    : " << this->nim << endl;
+            cout << "Nilai  : " << this->nilai << endl;
+        }
+
+        //? Setter Function -> berfungsi untuk mengubah data sebuah variabel yang memiliki akses private
+        void setName(string nama) {
+            this->nama = nama;
+        }
+};
+
+int main() {
+    //system("cls"); // ini tidak perlu di Windows, tapi perlu di Linux/MacOS
+
+    //? Membuat objek Mahasiswa dengan nama "Andi", NIM "231401111", dan nilai 45.6
+    Mahasiswa siswa1("Andi", "231401111", 45.6);
+    siswa1.display();
+
+    //? Error karena nama adalah private, maka tidak bisa diakses langsung
+    //cout << siswa1.nama << endl;
+    //siswa1.nama = "Budi";
+    //cout << siswa1.nama << endl;
+
+    //? Menggunakan getter function untuk mengakses nama
+    cout << "Nama mahasiswa: " << siswa1.getName() << endl;
+
+    //? Menggunakan setter function untuk mengubah nama
+    siswa1.setName("Budi");
+    cout << "Nama mahasiswa setelah diubah: " << siswa1.getName() << endl;
+
+    //? Membuat vector untuk menyimpan data mahasiswa
+    vector<Mahasiswa> mahasiswa;
+    int n;
+    string nama, nim;
+    float nilai;
+
+    cout << "Masukkan jumlah mahasiswa : ";
+    cin >> n;
+
+    for(int i = 0; i < n; i++) {
+        cout << "Mahasiswa " << i + 1 << endl;
+
+        cin.ignore(); // untuk menghapus enter sebelumnya
+        cout << "Masukkan nama : ";
+        getline(cin, nama);
+
+        cout << "Masukkan NIM : ";
+        cin >> nim;
+
+        cout << "Masukkan nilai : ";
+        cin >> nilai;
+
+        //? Membuat objek Mahasiswa dengan data yang diinputkan
+        Mahasiswa mhs(nama, nim, nilai);
+        mahasiswa.push_back(mhs);
+    }
+
+    for(int i = 0; i < n; i++) {
+        cout << "Mahasiswa " << i + 1 << endl;
+        mahasiswa[i].display();
+    }
+
+    return 0;
+}
